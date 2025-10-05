@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Circus of Fortune - Where Crypto Meets the Big Top</title>
+    <title>Circus Fortune Casino - Where Crypto Meets the Big Top</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #ff5722;
@@ -12,6 +13,7 @@
             --dark: #1a1a2e;
             --light: #f8f9fa;
             --success: #4caf50;
+            --danger: #f44336;
         }
         
         * {
@@ -232,8 +234,8 @@
             100% { transform: translateY(0px); }
         }
         
-        /* Tokenomics Section */
-        .tokenomics {
+        /* Game Section */
+        .game-section {
             padding: 80px 0;
             background: rgba(255, 255, 255, 0.05);
         }
@@ -243,6 +245,175 @@
             font-size: 2.5rem;
             margin-bottom: 50px;
             color: var(--accent);
+        }
+        
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .balance, .bet-amount {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .balance-value, .bet-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-top: 10px;
+        }
+        
+        .bet-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .bet-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary);
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .wheel-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 20px auto;
+        }
+        
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--primary) 0deg 45deg,
+                var(--secondary) 45deg 90deg,
+                var(--accent) 90deg 135deg,
+                var(--success) 135deg 180deg,
+                var(--danger) 180deg 225deg,
+                var(--primary) 225deg 270deg,
+                var(--secondary) 270deg 315deg,
+                var(--accent) 315deg 360deg
+            );
+            position: relative;
+            transition: transform 4s cubic-bezier(0.2, 0.8, 0.3, 1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .wheel-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--dark);
+            border-radius: 50%;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        
+        .wheel-pointer {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            background: var(--accent);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            z-index: 3;
+        }
+        
+        .wheel-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-origin: center;
+        }
+        
+        .wheel-text {
+            position: absolute;
+            top: 30%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            transform-origin: center;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+        
+        .spin-button {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        
+        .spin-button:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 87, 34, 0.6);
+        }
+        
+        .spin-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .result-message {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            min-height: 40px;
+            color: var(--accent);
+        }
+        
+        /* Tokenomics Section */
+        .tokenomics {
+            padding: 80px 0;
         }
         
         .tokenomics-grid {
@@ -287,6 +458,7 @@
         /* Characters Section */
         .characters {
             padding: 80px 0;
+            background: rgba(255, 255, 255, 0.05);
         }
         
         .characters-grid {
@@ -323,99 +495,6 @@
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: var(--accent);
-        }
-        
-        /* Roadmap Section */
-        .roadmap {
-            padding: 80px 0;
-            background: rgba(255, 255, 255, 0.05);
-        }
-        
-        .roadmap-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .roadmap-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 4px;
-            background: var(--primary);
-            transform: translateX(-50%);
-        }
-        
-        .roadmap-item {
-            padding: 20px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .roadmap-item:nth-child(odd) {
-            left: 0;
-        }
-        
-        .roadmap-item:nth-child(even) {
-            left: 50%;
-        }
-        
-        .roadmap-content {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            position: relative;
-            backdrop-filter: blur(10px);
-        }
-        
-        .roadmap-item:nth-child(odd) .roadmap-content::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            right: -10px;
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-left: 10px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .roadmap-item:nth-child(even) .roadmap-content::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: -10px;
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-right: 10px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .roadmap-marker {
-            position: absolute;
-            top: 30px;
-            width: 20px;
-            height: 20px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-        
-        .roadmap-item:nth-child(odd) .roadmap-marker {
-            right: -10px;
-        }
-        
-        .roadmap-item:nth-child(even) .roadmap-marker {
-            left: -10px;
-        }
-        
-        .roadmap-phase {
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 10px;
         }
         
         /* Footer */
@@ -474,30 +553,14 @@
                 font-size: 2.5rem;
             }
             
-            .roadmap-container::before {
-                left: 20px;
+            .wheel-container {
+                width: 300px;
+                height: 300px;
             }
             
-            .roadmap-item {
-                width: 100%;
-                padding-left: 50px;
-                padding-right: 25px;
-            }
-            
-            .roadmap-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .roadmap-item:nth-child(odd) .roadmap-marker,
-            .roadmap-item:nth-child(even) .roadmap-marker {
-                left: 10px;
-            }
-            
-            .roadmap-item:nth-child(odd) .roadmap-content::after,
-            .roadmap-item:nth-child(even) .roadmap-content::after {
-                left: -10px;
-                border-right: 10px solid rgba(255, 255, 255, 0.1);
-                border-left: none;
+            .game-info {
+                flex-direction: column;
+                gap: 20px;
             }
         }
     </style>
@@ -509,14 +572,14 @@
             <div class="header-content">
                 <div class="logo">
                     <div class="logo-icon">🎪</div>
-                    <div class="logo-text">CIRCUS OF FORTUNE</div>
+                    <div class="logo-text">CIRCUS FORTUNE CASINO</div>
                 </div>
                 <nav>
                     <ul>
                         <li><a href="#home">Home</a></li>
+                        <li><a href="#game">Play Game</a></li>
                         <li><a href="#tokenomics">Tokenomics</a></li>
                         <li><a href="#characters">Characters</a></li>
-                        <li><a href="#roadmap">Roadmap</a></li>
                     </ul>
                 </nav>
                 <button class="cta-button">BUY ON PUMP.FUN</button>
@@ -530,7 +593,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">Step Right Up to the Greatest Show in Crypto!</h1>
-                    <p class="hero-subtitle">Where circus spectacle meets blockchain brilliance. Our token brings the thrill of the big top to the world of decentralized finance.</p>
+                    <p class="hero-subtitle">Where circus spectacle meets blockchain brilliance. Spin the Wheel of Fortune and win big with our $CIRCUS token!</p>
                     <button class="cta-button">JOIN THE CIRCUS</button>
                 </div>
                 <div class="hero-image">
@@ -546,7 +609,7 @@
                             </div>
                         </div>
                         <div class="tent-body">
-                            $FORTUNE
+                            $CIRCUS
                         </div>
                     </div>
                 </div>
@@ -554,90 +617,47 @@
         </div>
     </section>
 
+    <!-- Game Section -->
+    <section class="game-section" id="game">
+        <div class="container">
+            <h2 class="section-title">Wheel of Fortune</h2>
+            <div class="game-container">
+                <div class="game-info">
+                    <div class="balance">
+                        <span>Your Balance</span>
+                        <div class="balance-value" id="balance">1000</div>
+                    </div>
+                    <div class="bet-amount">
+                        <span>Bet Amount</span>
+                        <div class="bet-value" id="bet-amount">10</div>
+                        <div class="bet-controls">
+                            <button class="bet-btn" id="decrease-bet">-</button>
+                            <button class="bet-btn" id="increase-bet">+</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wheel-container">
+                    <div class="wheel-pointer"></div>
+                    <div class="wheel" id="wheel">
+                        <div class="wheel-center">$</div>
+                        <div class="wheel-text" style="transform: rotate(22.5deg)">2x</div>
+                        <div class="wheel-text" style="transform: rotate(67.5deg)">1.5x</div>
+                        <div class="wheel-text" style="transform: rotate(112.5deg)">0.5x</div>
+                        <div class="wheel-text" style="transform: rotate(157.5deg)">3x</div>
+                        <div class="wheel-text" style="transform: rotate(202.5deg)">0x</div>
+                        <div class="wheel-text" style="transform: rotate(247.5deg)">1x</div>
+                        <div class="wheel-text" style="transform: rotate(292.5deg)">2.5x</div>
+                        <div class="wheel-text" style="transform: rotate(337.5deg)">1x</div>
+                    </div>
+                </div>
+                
+                <button class="spin-button" id="spin-button">SPIN THE WHEEL</button>
+                <div class="result-message" id="result-message"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Tokenomics Section -->
     <section class="tokenomics" id="tokenomics">
-        <div class="container">
-            <h2 class="section-title">Tokenomics</h2>
-            <div class="tokenomics-grid">
-                <div class="token-card">
-                    <div class="token-icon">🎯</div>
-                    <h3 class="token-title">Total Supply</h3>
-                    <p>1,000,000,000 $FORTUNE tokens</p>
-                </div>
-                <div class="token-card">
-                    <div class="token-icon">🎪</div>
-                    <h3 class="token-title">Liquidity</h3>
-                    <p>90% locked for 1 year on Pump.fun</p>
-                </div>
-                <div class="token-card">
-                    <div class="token-icon">🎭</div>
-                    <h3 class="token-title">Tax</h3>
-                    <p>0% buy/sell tax for maximum circus fun!</p>
-                </div>
-                <div class="token-card">
-                    <div class="token-icon">🤹</div>
-                    <h3 class="token-title">Distribution</h3>
-                    <p>Fair launch with no team allocation</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Characters Section -->
-    <section class="characters" id="characters">
-        <div class="container">
-            <h2 class="section-title">Meet Our Performers</h2>
-            <div class="characters-grid">
-                <div class="character-card">
-                    <div class="character-image">🎩</div>
-                    <div class="character-info">
-                        <h3 class="character-name">The Ringmaster</h3>
-                        <p>Our charismatic leader who guides the $FORTUNE ecosystem with flair and precision.</p>
-                    </div>
-                </div>
-                <div class="character-card">
-                    <div class="character-image">🤹</div>
-                    <div class="character-info">
-                        <h3 class="character-name">The Juggler</h3>
-                        <p>Master of multiple tasks, balancing development, marketing, and community engagement.</p>
-                    </div>
-                </div>
-                <div class="character-card">
-                    <div class="character-image">🎪</div>
-                    <div class="character-info">
-                        <h3 class="character-name">The Strongman</h3>
-                        <p>Provides the foundational strength to our token with robust security and solid fundamentals.</p>
-                    </div>
-                </div>
-                <div class="character-card">
-                    <div class="character-image">🎰</div>
-                    <div class="character-info">
-                        <h3 class="character-name">The Fortune Teller</h3>
-                        <p>Our oracle that predicts market trends and guides our strategic decisions.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap Section -->
-    <section class="roadmap" id="roadmap">
-        <div class="container">
-            <h2 class="section-title">Roadmap to the Big Top</h2>
-            <div class="roadmap-container">
-                <div class="roadmap-item">
-                    <div class="roadmap-marker"></div>
-                    <div class="roadmap-content">
-                        <h3 class="roadmap-phase">PHASE 1: THE GRAND ENTRANCE</h3>
-                        <p>Token launch on Pump.fun, website deployment, and initial community building.</p>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-marker"></div>
-                    <div class="roadmap-content">
-                        <h3 class="roadmap-phase">PHASE 2: BUILDING THE AUDIENCE</h3>
-                        <p>Social media expansion, influencer partnerships, and CEX listings.</p>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                
+        <div class="conta
