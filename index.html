@@ -3,56 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neon Circus Casino - Quantum Crypto Experience</title>
+    <title>Neon Circus Casino</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #ff2a6d;
-            --secondary: #05d9e8;
-            --accent: #ffcc00;
-            --dark: #0d0d1a;
-            --darker: #050510;
-            --light: #f0f5ff;
-            --success: #00ff9d;
-            --danger: #ff2a6d;
-            --neon-glow: 0 0 10px, 0 0 20px, 0 0 40px;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
         
         body {
-            font-family: 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
+            background: #0d0d1a;
+            color: #ffffff;
             overflow-x: hidden;
-            min-height: 100vh;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255, 42, 109, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(5, 217, 232, 0.1) 0%, transparent 20%),
-                linear-gradient(to bottom, var(--darker) 0%, var(--dark) 100%);
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Header */
         header {
-            background: rgba(13, 13, 26, 0.9);
+            background: #1a1a2e;
             padding: 20px 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 30px rgba(255, 42, 109, 0.2);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(5, 217, 232, 0.2);
+            z-index: 100;
+            border-bottom: 2px solid #ff2a6d;
         }
         
         .header-content {
@@ -70,27 +50,23 @@
         .logo-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, #ff2a6d, #ffcc00);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             font-size: 24px;
-            color: var(--dark);
-            box-shadow: 0 0 15px var(--primary);
+            color: #0d0d1a;
         }
         
         .logo-text {
             font-size: 28px;
             font-weight: 800;
-            font-family: 'Orbitron', sans-serif;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(to right, #ff2a6d, #05d9e8);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
-            letter-spacing: 1px;
         }
         
         nav ul {
@@ -100,72 +76,36 @@
         }
         
         nav a {
-            color: var(--light);
+            color: #ffffff;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
-            position: relative;
-            padding: 5px 10px;
-            border-radius: 4px;
+            transition: color 0.3s;
         }
         
         nav a:hover {
-            color: var(--secondary);
-            text-shadow: 0 0 10px var(--secondary);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            transition: width 0.3s;
-            box-shadow: 0 0 8px var(--secondary);
-        }
-        
-        nav a:hover::after {
-            width: 100%;
+            color: #05d9e8;
         }
         
         .cta-button {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--dark);
+            background: linear-gradient(to right, #ff2a6d, #05d9e8);
+            color: #0d0d1a;
             border: none;
             padding: 12px 25px;
             border-radius: 30px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 0 20px rgba(255, 42, 109, 0.5);
-            font-family: 'Orbitron', sans-serif;
+            transition: transform 0.3s;
         }
         
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 25px rgba(255, 42, 109, 0.8);
         }
         
         /* Hero Section */
         .hero {
-            padding: 120px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 42, 109, 0.15) 0%, transparent 30%),
-                radial-gradient(circle at 80% 70%, rgba(5, 217, 232, 0.15) 0%, transparent 30%);
-            z-index: -1;
+            padding: 100px 0;
+            background: radial-gradient(circle at top right, rgba(255, 42, 109, 0.2), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(5, 217, 232, 0.2), transparent 40%);
         }
         
         .hero-content {
@@ -183,20 +123,17 @@
             font-size: 3.5rem;
             line-height: 1.2;
             margin-bottom: 20px;
-            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+            background: linear-gradient(to right, #ff2a6d, #05d9e8);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 20px rgba(255, 42, 109, 0.3);
-            font-family: 'Orbitron', sans-serif;
         }
         
         .hero-subtitle {
             font-size: 1.2rem;
             margin-bottom: 30px;
-            color: #a0b0ff;
+            color: #cccccc;
             max-width: 500px;
-            line-height: 1.6;
         }
         
         .hero-image {
@@ -204,179 +141,88 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
         }
         
-        .hologram-tent {
-            width: 350px;
-            height: 350px;
+        .circus-tent {
+            width: 300px;
+            height: 300px;
             position: relative;
-            animation: float 8s ease-in-out infinite;
-            filter: drop-shadow(0 0 20px var(--secondary));
-        }
-        
-        .tent-base {
-            width: 250px;
-            height: 150px;
-            background: rgba(5, 217, 232, 0.1);
-            position: absolute;
-            bottom: 0;
-            left: 50px;
-            border-radius: 10px 10px 0 0;
-            border: 2px solid var(--secondary);
-            box-shadow: 
-                inset 0 0 20px rgba(5, 217, 232, 0.3),
-                0 0 30px rgba(5, 217, 232, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--light);
-            font-weight: bold;
-            font-size: 24px;
-            font-family: 'Orbitron', sans-serif;
+            animation: float 6s ease-in-out infinite;
         }
         
         .tent-roof {
             width: 0;
             height: 0;
-            border-left: 175px solid transparent;
-            border-right: 175px solid transparent;
-            border-bottom: 140px solid rgba(255, 42, 109, 0.2);
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 120px solid #ff2a6d;
+            position: relative;
+        }
+        
+        .tent-body {
+            width: 250px;
+            height: 150px;
+            background: #05d9e8;
             position: absolute;
-            top: 30px;
-            left: 0;
+            bottom: 0;
+            left: 25px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #0d0d1a;
+            font-weight: bold;
+            font-size: 24px;
         }
         
         .tent-stripes {
             position: absolute;
-            top: 30px;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 140px;
-            overflow: hidden;
+            height: 100%;
         }
         
         .stripe {
             position: absolute;
-            width: 25px;
-            height: 140px;
-            background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+            width: 20px;
+            height: 120px;
+            background: #ffcc00;
             transform-origin: bottom;
-            opacity: 0.7;
         }
         
-        .stripe:nth-child(1) { left: 35px; transform: skewX(20deg); }
-        .stripe:nth-child(2) { left: 75px; transform: skewX(20deg); }
-        .stripe:nth-child(3) { left: 115px; transform: skewX(20deg); }
-        .stripe:nth-child(4) { left: 155px; transform: skewX(20deg); }
-        .stripe:nth-child(5) { left: 195px; transform: skewX(20deg); }
-        .stripe:nth-child(6) { left: 235px; transform: skewX(20deg); }
-        .stripe:nth-child(7) { left: 275px; transform: skewX(20deg); }
-        
-        .tent-glow {
-            position: absolute;
-            top: 30px;
-            left: 0;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(255, 42, 109, 0.1) 0%, transparent 70%);
-            animation: pulse 4s infinite alternate;
-        }
-        
-        .quantum-particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--secondary);
-            border-radius: 50%;
-            animation: particle-float 10s infinite linear;
-            opacity: 0;
-        }
+        .stripe:nth-child(1) { left: 30px; transform: skewX(20deg); }
+        .stripe:nth-child(2) { left: 70px; transform: skewX(20deg); }
+        .stripe:nth-child(3) { left: 110px; transform: skewX(20deg); }
+        .stripe:nth-child(4) { left: 150px; transform: skewX(20deg); }
+        .stripe:nth-child(5) { left: 190px; transform: skewX(20deg); }
+        .stripe:nth-child(6) { left: 230px; transform: skewX(20deg); }
         
         @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
-        }
-        
-        @keyframes particle-float {
-            0% { 
-                transform: translate(0, 0) rotate(0deg);
-                opacity: 0;
-            }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { 
-                transform: translate(100px, -100px) rotate(360deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
         
         /* Game Section */
         .game-section {
-            padding: 100px 0;
-            background: rgba(255, 255, 255, 0.03);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .game-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 30% 20%, rgba(255, 42, 109, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(5, 217, 232, 0.05) 0%, transparent 50%);
-            z-index: -1;
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.05);
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 60px;
-            color: var(--accent);
-            text-shadow: 0 0 15px var(--accent);
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, transparent, var(--accent), transparent);
-            box-shadow: 0 0 10px var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #ffcc00;
         }
         
         .game-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 40px;
-            max-width: 900px;
+            gap: 30px;
+            max-width: 800px;
             margin: 0 auto;
         }
         
@@ -384,11 +230,9 @@
             display: flex;
             justify-content: space-between;
             width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         .balance, .bet-amount {
@@ -397,55 +241,45 @@
             align-items: center;
         }
         
-        .balance-title, .bet-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--secondary);
-        }
-        
         .balance-value, .bet-value {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: bold;
-            color: var(--accent);
-            text-shadow: 0 0 10px var(--accent);
-            margin-top: 5px;
-            font-family: 'Orbitron', sans-serif;
+            color: #ffcc00;
+            margin-top: 10px;
         }
         
         .bet-controls {
             display: flex;
             gap: 15px;
             align-items: center;
-            margin-top: 15px;
+            margin-top: 10px;
         }
         
         .bet-btn {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             border: none;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--dark);
-            font-size: 1.5rem;
+            background: #ff2a6d;
+            color: white;
+            font-size: 1.2rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
-            box-shadow: 0 0 15px rgba(255, 42, 109, 0.5);
         }
         
         .bet-btn:hover {
+            background: #05d9e8;
             transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 42, 109, 0.8);
         }
         
         .wheel-container {
             position: relative;
-            width: 450px;
-            height: 450px;
-            margin: 30px auto;
-            filter: drop-shadow(0 0 20px rgba(255, 204, 0, 0.5));
+            width: 400px;
+            height: 400px;
+            margin: 20px auto;
         }
         
         .wheel {
@@ -454,11 +288,9 @@
             border-radius: 50%;
             position: relative;
             transition: transform 4s cubic-bezier(0.2, 0.8, 0.3, 1);
-            box-shadow: 
-                0 0 0 10px rgba(255, 204, 0, 0.2),
-                inset 0 0 50px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             overflow: hidden;
-            background: rgba(0, 0, 0, 0.3);
+            background: #1a1a2e;
         }
         
         .wheel-center {
@@ -466,32 +298,29 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: var(--dark);
+            width: 60px;
+            height: 60px;
+            background: #0d0d1a;
             border-radius: 50%;
             z-index: 2;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent);
+            color: #ffcc00;
             font-size: 1.5rem;
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 20px var(--accent);
-            font-family: 'Orbitron', sans-serif;
+            border: 3px solid #ffcc00;
         }
         
         .wheel-pointer {
             position: absolute;
-            top: -25px;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 35px;
-            height: 60px;
-            background: var(--accent);
+            width: 30px;
+            height: 50px;
+            background: #ffcc00;
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
             z-index: 3;
-            filter: drop-shadow(0 0 10px var(--accent));
         }
         
         .wheel-section {
@@ -511,30 +340,26 @@
             transform: translate(-50%, -50%) rotate(45deg);
             font-weight: bold;
             color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
             font-size: 1.5rem;
             z-index: 1;
-            font-family: 'Orbitron', sans-serif;
         }
         
         .spin-button {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--dark);
+            background: linear-gradient(to right, #ff2a6d, #05d9e8);
+            color: white;
             border: none;
-            padding: 18px 50px;
+            padding: 15px 40px;
             border-radius: 30px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 0 25px rgba(255, 42, 109, 0.5);
-            font-size: 1.3rem;
+            transition: transform 0.3s;
+            font-size: 1.2rem;
             margin-top: 20px;
-            font-family: 'Orbitron', sans-serif;
         }
         
         .spin-button:hover:not(:disabled) {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(255, 42, 109, 0.8);
+            transform: translateY(-3px);
         }
         
         .spin-button:disabled {
@@ -543,114 +368,306 @@
         }
         
         .result-message {
-            margin-top: 25px;
+            margin-top: 20px;
             font-size: 1.5rem;
             font-weight: bold;
             text-align: center;
-            min-height: 50px;
-            color: var(--accent);
-            padding: 15px 30px;
+            min-height: 40px;
+            color: #ffcc00;
+            padding: 10px 20px;
             border-radius: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.2);
-            text-shadow: 0 0 10px var(--accent);
-            transition: all 0.5s;
-            font-family: 'Orbitron', sans-serif;
+            background: rgba(255, 255, 255, 0.1);
         }
         
         /* Tokenomics Section */
         .tokenomics {
-            padding: 100px 0;
-            position: relative;
-        }
-        
-        .tokenomics::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 80% 20%, rgba(5, 217, 232, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 20% 80%, rgba(255, 42, 109, 0.05) 0%, transparent 50%);
-            z-index: -1;
+            padding: 80px 0;
         }
         
         .tokenomics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
         
         .token-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
             text-align: center;
-            transition: all 0.4s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .token-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: transform 0.3s;
         }
         
         .token-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
         }
         
         .token-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff2a6d, #05d9e8);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 35px;
-            box-shadow: 0 0 20px rgba(255, 42, 109, 0.5);
+            margin: 0 auto 20px;
+            font-size: 30px;
         }
         
         .token-title {
-            font-size: 1.7rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-            text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .token-card p {
-            color: #a0b0ff;
-            line-height: 1.6;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffcc00;
         }
         
         /* Characters Section */
         .characters {
-            padding: 100px 0;
-            background: rgba(255, 255, 255, 0.03);
-            position: relative;
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.05);
         }
         
-        .characters::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 60% 30%, rgba(255, 42, 109, 0.05) 0%,
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .character-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .character-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .character-image {
+            height: 200px;
+            background: linear-gradient(135deg, #ff2a6d, #05d9e8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+        
+        .character-info {
+            padding: 20px;
+        }
+        
+        .character-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffcc00;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f0f1a;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background: #ff2a6d;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .wheel-container {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .game-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .wheel-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🎪</div>
+                    <div class="logo-text">CIRCUS FORTUNE CASINO</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#game">Play Game</a></li>
+                        <li><a href="#tokenomics">Tokenomics</a></li>
+                        <li><a href="#characters">Characters</a></li>
+                    </ul>
+                </nav>
+                <button class="cta-button" id="buy-button">BUY ON PUMP.FUN</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Step Right Up to the Greatest Show in Crypto!</h1>
+                    <p class="hero-subtitle">Where circus spectacle meets blockchain brilliance. Spin the Wheel of Fortune and win big with our $CIRCUS token!</p>
+                    <button class="cta-button">JOIN THE CIRCUS</button>
+                </div>
+                <div class="hero-image">
+                    <div class="circus-tent">
+                        <div class="tent-roof">
+                            <div class="tent-stripes">
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                            </div>
+                        </div>
+                        <div class="tent-body">
+                            $CIRCUS
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Section -->
+    <section class="game-section" id="game">
+        <div class="container">
+            <h2 class="section-title">Wheel of Fortune</h2>
+            <div class="game-container">
+                <div class="game-info">
+                    <div class="balance">
+                        <span>Your Balance</span>
+                        <div class="balance-value" id="balance">1000</div>
+                    </div>
+                    <div class="bet-amount">
+                        <span>Bet Amount</span>
+                        <div class="bet-value" id="bet-amount">10</div>
+                        <div class="bet-controls">
+                            <button class="bet-btn" id="decrease-bet">-</button>
+                            <button class="bet-btn" id="increase-bet">+</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wheel-container">
+                    <div class="wheel-pointer"></div>
+                    <div class="wheel" id="wheel">
+                        <!-- Wheel sections will be generated by JavaScript -->
+                    </div>
+                </div>
+                
+                <button class="spin-button" id="spin-button">SPIN THE WHEEL</button>
+                <div class="result-message" id="result-message"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="tokenomics" id="tokenomics">
+        <div class="container">
+            <h2 class="section-title">Tokenomics</h2>
+            <div class="tokenomics-grid">
+                <div class="token-card">
+                    <div class="token-icon">🎯</div>
+                    <h3 class="token-title">Total Supply</h3>
+                    <p>1,000,000,000 $CIRCUS tokens</p>
+                </div>
+                <div class="token-card">
+                    <div class="token-icon">🎪</div>
+                    <h3 class="token-title">Liquidity</h3>
+                    <p>90% locked for 1 year on Pump.fun</p>
+                </div>
+                <div class="token-card">
+                    <div class="token-icon">🔥</div>
+                    <h3 class="token-title">Token Burns</h3>
+                    <p>5% of every transaction burned automatically</p>
+                </div>
+                <div class="token-card">
+                    <div class="token-icon">💰</div>
+                    <h3 class="token-title">Rewards</h3>
+                    <p>5% redistributed to all holders</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section class="characters" id="characters">
+        <div class="container">
+            <h2 class="section-title">Circus Characters</h2>
+            <div class="characters-grid">
+                <div class="character-card">
+                    <div class="character-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Quantum Jester</h3>
+                        <p>Our AI-powered entertainer that calculates probabilities in real-time.</p>
+                    </div>
+                </div>
+                <div class="character-card">
+                    <div class="character-image">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Neon Ringmaster</h3>
+                  
