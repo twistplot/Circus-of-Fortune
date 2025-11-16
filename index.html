@@ -204,7 +204,7 @@
         .section-7 { background: #ff2a6d; transform: rotate(315deg); }
         
         .wheel-text {
-            transform: rotate(45deg) translate(0, -120px);
+            transform: rotate(45deg);
             text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         }
         
@@ -256,47 +256,6 @@
             color: #ffcc00;
             min-height: 50px;
             padding: 10px;
-        }
-        
-        /* Clown Popup */
-        .clown-popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            background: #ff2a6d;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            z-index: 1000;
-            box-shadow: 0 0 30px rgba(255, 42, 109, 0.8);
-            border: 5px solid #ffcc00;
-            transition: transform 0.5s;
-        }
-        
-        .clown-popup.show {
-            transform: translate(-50%, -50%) scale(1);
-        }
-        
-        .clown-icon {
-            font-size: 80px;
-            margin-bottom: 20px;
-        }
-        
-        .clown-message {
-            font-size: 2rem;
-            font-weight: bold;
-            color: white;
-        }
-        
-        .win-clown {
-            background: #00cc66;
-            border-color: #ffcc00;
-        }
-        
-        .lose-clown {
-            background: #ff2a6d;
-            border-color: #ffcc00;
         }
         
         /* Other sections */
@@ -351,11 +310,6 @@
             .wheel-container {
                 width: 300px;
                 height: 300px;
-            }
-            
-            .wheel-text {
-                transform: rotate(45deg) translate(0, -90px);
-                font-size: 1.2rem;
             }
         }
     </style>
@@ -430,12 +384,6 @@
             <div class="result-message" id="result-message">Place your bet and spin to win!</div>
         </div>
     </section>
-
-    <!-- Clown Popup -->
-    <div class="clown-popup" id="clown-popup">
-        <div class="clown-icon">🤡</div>
-        <div class="clown-message" id="clown-message">Congratulations!</div>
-    </div>
 
     <!-- Tokenomics -->
     <section class="tokenomics" id="tokenomics">
@@ -514,34 +462,10 @@
         const betAmountElement = document.getElementById('bet-amount');
         const decreaseBetButton = document.getElementById('decrease-bet');
         const increaseBetButton = document.getElementById('increase-bet');
-        const clownPopup = document.getElementById('clown-popup');
-        const clownMessage = document.getElementById('clown-message');
         
         // Update bet amount display
         function updateBetAmount() {
             betAmountElement.textContent = betAmount;
-        }
-        
-        // Show clown popup
-        function showClownPopup(message, isWin) {
-            clownMessage.textContent = message;
-            
-            // Set appropriate class based on win/loss
-            if (isWin) {
-                clownPopup.classList.remove('lose-clown');
-                clownPopup.classList.add('win-clown');
-            } else {
-                clownPopup.classList.remove('win-clown');
-                clownPopup.classList.add('lose-clown');
-            }
-            
-            // Show the popup
-            clownPopup.classList.add('show');
-            
-            // Hide after 3 seconds
-            setTimeout(() => {
-                clownPopup.classList.remove('show');
-            }, 3000);
         }
         
         // Bet controls
@@ -599,13 +523,10 @@
                 
                 if (multiplier === 0) {
                     resultMessage.textContent = "You lost " + betAmount + " tokens! Try again.";
-                    showClownPopup("Better luck next time! 🤡", false);
                 } else if (multiplier === 1) {
                     resultMessage.textContent = "Break even! You got your " + betAmount + " tokens back.";
-                    showClownPopup("Almost there! Try again! 🤡", false);
                 } else {
                     resultMessage.textContent = "Congratulations! You won " + winAmount + " tokens!";
-                    showClownPopup("You're a winner! 🎉", true);
                 }
                 
                 isSpinning = false;
@@ -621,4 +542,12 @@
             wheel.style.transform = `rotate(${currentRotation % 360}deg)`;
             setTimeout(() => {
                 wheel.style.transition = 'transform 4s cubic-bezier(0.2, 0.8, 0.3, 1)';
-  
+            }, 50);
+        });
+        
+        // Initialize
+        updateBetAmount();
+        console.log("Game initialized successfully");
+    </script>
+</body>
+</html>
